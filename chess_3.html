@@ -1,0 +1,151 @@
+<html>
+    <head>
+        
+        <script
+            src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous">
+        </script>
+
+
+        <style>
+            .row{
+                overflow: hidden;
+            }
+            .grid{
+                width:20px;
+                height:20px;
+                border:1px solid #000;
+                float:left;
+                background:#dedede;
+                cursor:pointer;
+            }
+            .grid_select{
+                background:red;
+            }
+
+            .grid_red{
+                background:red;
+            }
+            .grid_blue{
+                background:blue;
+            }
+            .grid_yellow{
+                background:yellow;
+            }
+
+            .color-option{
+                color:blue;
+                padding:2px 5px;
+                border:1px solid #999;
+                border-radius: 5px;
+                margin:5px;
+                display:inline-block;
+                background:#dedede;
+                cursor:pointer;
+
+
+            }
+            .text-red{
+                color:red;
+            }
+            .text-yellow{
+                color:yellow;
+            }
+            .text-blue{
+                color:blue;
+            }
+
+         
+           
+        </style>
+
+
+        <script>
+            var selected_color = 'blue';
+            var red_count = 0;
+            var blue_count = 0;
+            
+            $(document).ready(function(){
+                var grid_html = '';
+
+
+                
+                
+                for (var y=0; y<10; y++){
+                    //CONTROL ROW
+                    grid_html += '<div class="row">';
+
+                    for (var x=0; x<10; x++ ){
+                        //CONTROL GRID
+                        grid_html = grid_html + '<div class="grid" onclick="select_grid(this)"></div>';
+                    }
+
+                    grid_html += '</div>';
+                }
+                
+
+                $('#board').html(grid_html);
+                
+                
+            });
+
+
+            function select_grid(grid_object){
+                $(grid_object).addClass('grid_' + selected_color);
+
+                if (selected_color == 'blue'){
+                    selected_color = 'red';
+                    blue_count++;
+                }
+                else{
+                    //that mean selected_color red
+                    selected_color = 'blue';
+                    red_count++;
+                }
+                
+                //show score of red and blue on the score board
+                $('.score-red').html(red_count);
+                $('.score-blue').html(blue_count);
+
+                
+                $('#turn-text').html(selected_color);
+                $('#turn-text').removeClass();
+                $('#turn-text').addClass('text-' + selected_color);
+            }
+
+            function select_color(color_name){
+                selected_color = color_name;
+            }
+        
+        </script>
+
+        
+        
+    </head>
+    <body>
+       <div id="score-board">
+           RED (<span class="score-red">0</span>) : BLUE (<span class="score-blue">0</span>)
+       </div>
+        <div id="board">
+
+
+
+        </div>
+
+        <div class="turn-indicator">
+            <span id="turn-text" class="text-blue">BLUE</span>'s turn!
+        </div>
+
+        
+
+
+
+        
+                    
+
+
+      
+
+    </body>
+</html>

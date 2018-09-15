@@ -1,0 +1,83 @@
+<html>
+    <head>
+        
+        <script
+            src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous">
+        </script>
+
+
+        <style>
+            .cat{
+                background: #2a7315;
+                color: #fff;
+                padding: 5px;
+                text-align: center;
+            }
+        </style>
+
+        
+        
+    </head>
+    <body>
+        <div class="question">
+            How old is Donald Trump?          
+        </div>
+
+        <div class="answer">
+            <a href="javascript:;" onclick="ans(15)">15 year-old</a><br/>
+            <a href="javascript:;" onclick="ans(30)">30 year-old</a><br/>
+            <a href="javascript:;" onclick="ans(48)">48 year-old</a><br/>
+            <a href="javascript:;" onclick="ans(55)">55 year-old</a><br/>
+            <a href="javascript:;" onclick="ans(76)">76 year-old</a><br/>
+        </div>
+    
+        <div id="result">
+
+        </div>
+
+        <div id="number">
+
+        </div>
+
+
+
+        <script>
+                
+            
+           
+            function ans(age){
+                var correct_ans = getCorrrectAns();
+               if (age == correct_ans){
+                   $('#result').html('Correct!');
+               }
+               else if (age >= 30 && age <= 55){
+                    $('#result').html('STUPID!');
+               }
+               
+               else{
+                    $('#result').html('WRONG!!');
+               }
+                
+            }
+
+            function get_correct_ans(){
+                //return 76;
+                var ans = 70 + 6;
+                return ans;
+            }
+            var a = 0;
+            for (var y = 1; y<10;y++){
+                a = a + y;
+                $('#number').html(a);
+
+
+            }
+    
+    
+                    
+        </script>
+
+    </body>
+</html>

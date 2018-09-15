@@ -1,0 +1,55 @@
+<html>
+    <head>
+        
+        <script
+            src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous">
+        </script>
+
+
+        <style>
+            .cat{
+                background: #2a7315;
+                color: #fff;
+                padding: 5px;
+                text-align: center;
+            }
+        </style>
+
+        
+        
+    </head>
+    <body>
+        <div class="dog">
+            HI ! <span id="my_name">Peter</span><br/>
+           
+            <a onclick="change_my_name('John')" href="javascript:;">CHANGE NAME TO JOHN</a><br/>
+            
+            <strong>I AM</strong>
+        </div>
+
+        <div class="cat" onclick="change_my_name('Mary')" >
+            I AM CAT<br/>
+            GOOOD
+        </div>
+    
+
+
+
+        <script>
+                
+            var x = 1;
+            function change_my_name(name){
+                // i do something here
+                
+                x = x+1;
+                $('#my_name').html(name + x);
+            }
+    
+    
+                    
+        </script>
+
+    </body>
+</html>
